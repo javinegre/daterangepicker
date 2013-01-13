@@ -203,14 +203,6 @@
 				this.opens = options.opens;
 		}
 
-		if (this.opens == 'right') {
-			//swap calendar positions
-			var left = this.container.find('.calendar.left');
-			var right = this.container.find('.calendar.right');
-			left.removeClass('left').addClass('right');
-			right.removeClass('right').addClass('left');
-		}
-
 		if (typeof cb == 'function')
 			this.cb = cb;
 

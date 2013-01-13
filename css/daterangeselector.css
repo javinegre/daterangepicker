@@ -125,12 +125,9 @@
 }
 
 .daterangepicker .left,
-.daterangepicker .mid {
-	float: left;
-}
-
+.daterangepicker .mid,
 .daterangepicker .right {
-	float: right;
+	display: inline-block;
 }
 
 .daterangepicker {
