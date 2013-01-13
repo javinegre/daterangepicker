@@ -24,7 +24,7 @@
 		this.minDate = Date.today().set({ day: 1, month: 0, year: 2006 });
 		this.changed = false;
 		this.ranges = {};
-		this.rangeMessages = {};
+		this.rangeActions = {};
 		this.opens = 'right';
 		this.cb = function () { };
 		this.format = 'MM/dd/yyyy';
@@ -154,8 +154,8 @@
 					} else {
 						var elId = 'range-' + range.replace(/\s/g, "-");
 						var elClass = 'range-' + options.ranges[range].type;
-						this.rangeMessages[range] = options.ranges[range].message;
-						this.rangeMessages[range].id = elId;
+						this.rangeActions[range] = options.ranges[range].action;
+						this.rangeActions[range].id = elId;
 						list += '<li id="' + elId + '" class="' + elClass + '">' + range + '</li>';
 					}
 				}
@@ -231,10 +231,10 @@
 		this.container.find('.calendar').on('click', 'th.cal-month', $.proxy(this.clickMonth, this));
 		this.container.find('.ranges ul li.range-enabled').on('click', $.proxy(this.clickRange, this));
 
-		for (var range in this.rangeMessages) {
-			var el = $('#' + this.rangeMessages[range].id);
-			var elFn = this.rangeMessages[range].func;
-			el[elFn](this.rangeMessages[range].options);
+		for (var range in this.rangeActions) {
+			var el = $('#' + this.rangeActions[range].id);
+			var elFn = this.rangeActions[range].func;
+			el[elFn](this.rangeActions[range].options);
 		}
 
 		this.element.on('keyup', $.proxy(this.updateFromControl, this));
