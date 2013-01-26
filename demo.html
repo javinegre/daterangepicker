@@ -1,0 +1,152 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Date Range Selector demo</title>
+        <link rel="stylesheet" type="text/css" media="all" href="./css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" media="all" href="./css/daterangepicker.css">
+        <script type="text/javascript" src="./js/jquery.min.js"></script>
+        <script type="text/javascript" src="./js/date.js"></script>
+        <script type="text/javascript" src="./js/daterangepicker.js"></script>
+    </head>
+
+    <body>
+        <div style="width: 1000px; margin: 0px auto;">
+
+            <section>
+                <h3>Installation</h3>
+<pre>
+<span style="color: grey;">&lt;html&gt;</span>
+    <span style="color: grey;">&lt;head&gt;</span>
+        <span style="color: grey;">...</span>
+        &lt;link rel="stylesheet" type="text/css" media="all" href="./css/bootstrap.css"&gt;
+        &lt;link rel="stylesheet" type="text/css" media="all" href="./css/daterangepicker.css"&gt;
+        <span style="color: grey;">...</span>
+        &lt;script type="text/javascript" src="./js/jquery.min.js">&lt;/script&gt;
+        &lt;script type="text/javascript" src="./js/date.js"&gt;&lt;/script&gt;
+        &lt;script type="text/javascript" src="./js/daterangepicker.js"&gt;&lt;/script&gt;
+        <span style="color: grey;">...</span>
+    <span style="color: grey;">&lt;/head&gt;</span>
+    <span style="color: grey;">&lt;body&gt;</span>
+        <span style="color: grey;">...</span>
+    <span style="color: grey;">&lt;/body&gt;</span>
+<span style="color: grey;">&lt;/html&gt;</span>
+</pre>
+            </section>
+
+            <section>
+
+                <div id="example-1" class="example">
+                    <h3>Basic Setup</h3>
+                    <div class="clearfix">
+                        <div id="dtp-1" class="btn btn-toolbar">
+                            <i class="icon-calendar icon-large"></i>
+                        </div>
+                    </div>
+                    <div class="code">
+                        <pre>
+&lt;div id="dtp-1" class="btn btn-toolbar"&gt;
+    &lt;i class="icon-calendar icon-large"&gt;&lt;/i&gt;
+&lt;/div&gt;
+
+$('#dtp-1').daterangepicker();</pre>
+                    </div>
+                </div>
+
+                <div id="example-2" class="example">
+                    <h3>Preset ranges</h3>
+                    <div class="clearfix">
+                        <div id="dtp-2" class="btn btn-toolbar">
+                            <i class="icon-calendar icon-large"></i>
+                        </div>
+                    </div>
+                    <div class="code">
+                        <pre>
+&lt;div id="dtp-2" class="btn btn-toolbar pull-right"&gt;
+    &lt;i class="icon-calendar icon-large"&gt;&lt;/i&gt;
+&lt;/div&gt;
+
+$('#dtp-2').daterangepicker(
+    {
+        ranges: {
+            'Today': {type: 'enabled', dates: ['today', 'today']},
+            'Last week': {type: 'enabled', dates: [Date.today().add({ days: -6 }), 'today']},
+            'Last month': {type: 'enabled', dates: [Date.today().add({ months: -1 }), 'today']},
+            'Last 3 months': {type: 'enabled', dates: [Date.today().add({ months: -3 }), 'today']},
+            'Last 6 months': {type: 'enabled', dates: [Date.today().add({ months: -6 }), 'today']}
+        }
+    }
+);</pre>
+                    </div>
+                </div>
+
+                <div id="example-3" class="example">
+                    <h3>Callback</h3>
+                    <div class="clearfix">
+                        <div id="dtp-3" class="btn btn-toolbar">
+                            <i class="icon-calendar icon-large"></i>
+                        </div>
+                        Initial date: <input id="input-1" type="text">
+                        Final date: <input id="input-2" type="text">
+                    </div>
+                    <div class="code">
+                        <pre>
+&lt;div id="dtp-3" class="btn btn-toolbar"&gt;
+    &lt;i class="icon-calendar icon-large"&gt;&lt;/i&gt;
+&lt;/div&gt;
+Initial date: &lt;input id="input-1" type="text"&gt;
+Final date: &lt;input id="input-2" type="text"&gt;
+
+$('#dtp-3').daterangepicker(
+    {
+        ranges: {
+            'Last month': {type: 'enabled', dates: [Date.today().add({ months: -1 }), 'today']},
+            'Last 6 months': {type: 'enabled', dates: [Date.today().add({ months: -6 }), 'today']},
+            'Last year': {type: 'enabled', dates: [Date.today().add({ years: -1 }), 'today']}
+        }
+    },
+    function (start, end) {
+        $('#input-1').val(start.toString('yyyy-MM-dd'));
+        $('#input-2').val(end.toString('yyyy-MM-dd'));
+    }
+);
+                        </pre>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+        <script type="text/javascript">
+            $('#dtp-1').daterangepicker();
+
+            $('#dtp-2').daterangepicker(
+                {
+                    ranges: {
+                        'Today': {type: 'enabled', dates: ['today', 'today']},
+                        'Last week': {type: 'enabled', dates: [Date.today().add({ days: -6 }), 'today']},
+                        'Last month': {type: 'enabled', dates: [Date.today().add({ months: -1 }), 'today']},
+                        'Last 3 months': {type: 'enabled', dates: [Date.today().add({ months: -3 }), 'today']},
+                        'Last 6 months': {type: 'enabled', dates: [Date.today().add({ months: -6 }), 'today']}
+                    }
+                }
+            );
+
+            $('#dtp-3').daterangepicker(
+                {
+                    ranges: {
+                        'Last month': {type: 'enabled', dates: [Date.today().add({ months: -1 }), 'today']},
+                        'Last 6 months': {type: 'enabled', dates: [Date.today().add({ months: -6 }), 'today']},
+                        'Last year': {type: 'enabled', dates: [Date.today().add({ years: -1 }), 'today']}
+                    }
+                },
+                function (start, end) {
+                    $('#input-1').val(start.toString('yyyy-MM-dd'));
+                    $('#input-2').val(end.toString('yyyy-MM-dd'));
+                }
+            );
+
+            $.fn.extend(function (params) {});
+
+        </script>
+    </body>
+</html>
