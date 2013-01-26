@@ -470,9 +470,8 @@
 
 			if (this.isRangeChanging()) {
 				this.startDate, this.endDate, this.tempDate[1] = this.tempDate[0];
-				// The date has been already notified (.notify())
 			} else {
-				this.notify();
+				this.changed = true;
 			}
 			this.hide();
 		},
