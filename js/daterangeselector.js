@@ -20,8 +20,7 @@
 		this.tempDate = [this.startDate, this.endDate];
 		// Default maximum date is today
 		this.maxDate = Date.today();
-		// Default minimum date, twitter was launched on March 21st, 2006
-		this.minDate = Date.today().set({ day: 1, month: 0, year: 2006 });
+		this.minDate = Date.today().set({ day: 1, month: 0, year: 1970 });
 		this.changed = false;
 		this.ranges = {};
 		this.rangeActions = {};
